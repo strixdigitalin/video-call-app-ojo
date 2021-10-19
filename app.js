@@ -2,7 +2,7 @@ let express = require("express");
 let app = express();
 let server = require("http").Server(app);
 let io = require("socket.io")(server);
-let stream = require("./src/ws/stream");
+let stream = require("./src/ws/stream.js");
 let path = require("path");
 let favicon = require("serve-favicon");
 const PORT = process.env.PORT || 3000;
@@ -16,7 +16,7 @@ app.use("/assets", express.static(path.join(__dirname, "src", "assets")));
 // }
 console.log(__dirname);
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "src/index.html");
+  res.sendFile(__dirname + "/src/index.html");
 });
 
 io.of("/stream").on("connection", stream);
