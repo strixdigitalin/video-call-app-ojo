@@ -17,6 +17,7 @@ app.use("/assets", express.static(path.join(__dirname, "src", "assets")));
 console.log(__dirname);
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/src/index.html");
+  
 });
 
 io.of("/stream").on("connection", stream);
